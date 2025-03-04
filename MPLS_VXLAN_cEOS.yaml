@@ -1,0 +1,87 @@
+name: cEOS_MultiDomain_EVPN
+
+topology:
+  nodes:
+    leaf1a:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf1a.conf
+    leaf1b:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf1b.conf
+    leaf2a:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf2a.conf
+    leaf2b:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf2b.conf
+    leaf2c:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf2c.conf
+    leaf3a:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/leaf3a.conf
+    spine1:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/spine1.conf
+    spine2:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/spine2.conf
+    PE1:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/PE1.conf
+    HOST1:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST1.conf
+    HOST2:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST2.conf
+    HOST3:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST3.conf
+    HOST4:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST4.conf
+    HOST5:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST5.conf
+
+  links:
+    - endpoints: ["spine1:eth1", "leaf1a:eth1"]
+    - endpoints: ["spine1:eth2", "leaf1b:eth1"]
+    - endpoints: ["spine1:eth3", "leaf2a:eth1"]
+    - endpoints: ["spine1:eth4", "leaf2b:eth1"]
+    - endpoints: ["spine1:eth5", "leaf3a:eth1"]
+    - endpoints: ["spine1:eth6", "PE1:eth1"]
+    - endpoints: ["spine2:eth1", "leaf1a:eth2"]
+    - endpoints: ["spine2:eth2", "leaf1b:eth2"]
+    - endpoints: ["spine2:eth3", "leaf2a:eth2"]
+    - endpoints: ["spine2:eth4", "leaf2b:eth2"]
+    - endpoints: ["spine2:eth5", "leaf3a:eth2"]
+    - endpoints: ["spine2:eth6", "PE1:eth2"]
+    - endpoints: ["PE1:eth3", "HOST5:eth1"]
+    - endpoints: ["leaf1a:eth3", "leaf1b:eth3"]
+    - endpoints: ["leaf1a:eth4", "leaf1b:eth4"]
+    - endpoints: ["leaf1a:eth5", "HOST5:eth1"]
+    - endpoints: ["leaf1b:eth5", "HOST5:eth2"]
+    - endpoints: ["leaf1b:eth6", "HOST2:eth1"]
+    - endpoints: ["leaf2a:eth3", "leaf2b:eth3"]
+    - endpoints: ["leaf2a:eth4", "leaf2b:eth4"]
+    - endpoints: ["leaf2a:eth5", "leaf2c:eth1"]
+    - endpoints: ["leaf2b:eth5", "leaf2c:eth2"]
+    - endpoints: ["leaf2c:eth3", "HOST3:eth1"]
+    - endpoints: ["leaf3a:eth3", "HOST4:eth1"]
+    - endpoints: ["PE1:eth3", "HOST5:eth1"]
