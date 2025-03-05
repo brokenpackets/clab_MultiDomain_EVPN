@@ -58,6 +58,10 @@ topology:
       kind: arista_ceos
       image: ceos:4.31.2F
       startup-config: ./configs/HOST5.conf
+    HOST6:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/HOST6.conf
 
   links:
     - endpoints: ["spine1:eth1", "leaf1a:eth1"]
@@ -73,6 +77,7 @@ topology:
     - endpoints: ["spine2:eth5", "leaf3a:eth2"]
     - endpoints: ["spine2:eth6", "PE1:eth2"]
     - endpoints: ["PE1:eth3", "HOST5:eth1"]
+    - endpoints: ["PE1:eth4", "HOST6:eth1"]
     - endpoints: ["leaf1a:eth3", "leaf1b:eth3"]
     - endpoints: ["leaf1a:eth4", "leaf1b:eth4"]
     - endpoints: ["leaf1a:eth5", "HOST1:eth1"]
