@@ -26,5 +26,5 @@ topology:
   links:
     - endpoints: ["PE2:eth1", "FW:eth1"]
     - endpoints: ["PE2:eth2", "PE1:eth1"]
-    - endpoints: ["PE1:eth3", "HOST5:eth1"]
+    - endpoints: ["PE1:eth2", "HOST5:eth1"]
     - endpoints: ["FW:eth2", "HOST4:eth1"]
