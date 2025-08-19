@@ -4,27 +4,27 @@ topology:
   nodes:
     FW:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/FW.conf
     PE2:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/PE2.conf
     PE1:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/PE1.conf
     HOST4:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/HOST4.conf
     HOST5:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/HOST5.conf
     RR:
       kind: arista_ceos
-      image: ceos:4.34.1F
+      image: ceos:4.31.3.1M
       startup-config: ./configs/RR.conf
   links:
     - endpoints: ["PE1:eth3", "FW:eth3"]
