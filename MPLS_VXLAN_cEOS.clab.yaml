@@ -22,9 +22,13 @@ topology:
       kind: arista_ceos
       image: ceos:4.34.1F
       startup-config: ./configs/HOST5.conf
-
+    RR:
+      kind: arista_ceos
+      image: ceos:4.34.1F
+      startup-config: ./configs/RR.conf
   links:
-    - endpoints: ["PE2:eth1", "FW:eth1"]
-    - endpoints: ["PE2:eth2", "PE1:eth1"]
+    - endpoints: ["PE2:eth2", "FW:eth1"]
+    - endpoints: ["PE1:eth1", "RR:eth1"]
+    - endpoints: ["PE2:eth1", "RR:eth2"]
     - endpoints: ["PE1:eth2", "HOST5:eth1"]
     - endpoints: ["FW:eth2", "HOST4:eth1"]
