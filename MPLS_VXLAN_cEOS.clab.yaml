@@ -27,6 +27,7 @@ topology:
       image: ceos:4.34.1F
       startup-config: ./configs/RR.conf
   links:
+    - endpoints: ["PE1:eth3", "FW:eth3"]
     - endpoints: ["PE2:eth2", "FW:eth1"]
     - endpoints: ["PE1:eth1", "RR:eth1"]
     - endpoints: ["PE2:eth1", "RR:eth2"]
